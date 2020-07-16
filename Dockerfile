@@ -13,7 +13,7 @@ WORKDIR /workspace
 #RUN ls -la /workspace
 EXPOSE 8080
 COPY --from=builder /app/target/testSpringBoot*.jar app.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar/testSpringBoot*.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar/testSpringBoot-1.0-SNAPSHOT.jar"]
 #COPY --from=builder /app/target/testSpringBoot*.jar app.jar
 #RUN ls -la /workspace
 #ENTRYPOINT exec java -jar /workspace/app.jar
