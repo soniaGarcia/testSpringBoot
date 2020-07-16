@@ -11,6 +11,9 @@ FROM openjdk:8-jdk-alpine
 LABEL maintainer="sonia.guadalupe.garcia@gmail.com"
 WORKDIR /workspace
 #RUN ls -la /workspace
+EXPOSE 8080
 COPY --from=builder /app/target/testSpringBoot*.jar app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+#COPY --from=builder /app/target/testSpringBoot*.jar app.jar
 #RUN ls -la /workspace
-ENTRYPOINT exec java -jar /workspace/app.jar
+#ENTRYPOINT exec java -jar /workspace/app.jar
